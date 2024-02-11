@@ -8,6 +8,29 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const assistant = "<assistant_id>"; // Replace with your assistant ID
+      const apiKey = "<your_api_key>"; // Replace with your API key
+      const buttonConfig = {}; // Customize this as needed
+    
+      (function (d, t) {
+        var g = document.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src =
+          "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+    
+        g.onload = function () {
+          window.vapiSDK.run({
+            apiKey: "", // required
+            assistant: assistant, // required
+            config: buttonConfig, // optional
+          });
+        };
+      })(document, "script");
+    </script> 
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
