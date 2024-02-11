@@ -9,8 +9,8 @@
   <body>
     <div id="root"></div>
     <script>
-      const assistant = "<assistant_id>"; // Replace with your assistant ID
-      const apiKey = "<your_api_key>"; // Replace with your API key
+      const assistant = process.env.VAPI_ASSISTANT_ID; // With use of env file we hold these secrets and refer to them
+      const apiKey = process.env.VAPI_ASSISTANT_API_KEY; // ^^
       const buttonConfig = {}; // Customize this as needed
     
       (function (d, t) {
@@ -24,7 +24,7 @@
     
         g.onload = function () {
           window.vapiSDK.run({
-            apiKey: "", // required
+            apiKey: apiKey, // required
             assistant: assistant, // required
             config: buttonConfig, // optional
           });
